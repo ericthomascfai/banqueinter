@@ -34,6 +34,12 @@ class Compte
         echo "Le solde du compte n°".$this->numero." est de ".number_format($this->solde,2)." euros<br>";
     }
 
+    public function virer($montant,$destinataire)
+    {
+        $this->retrait($montant);
+        $destinataire->depot($montant);
+    }
+
 }
 
 ?>
