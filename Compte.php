@@ -13,12 +13,12 @@ class Compte
 
     public function depot($montant)
     {
-        $this->solde+=$montant;
+        $this->solde+=(float)$montant;
     }
 
     public function retrait($montant)
     {
-        $this->solde-=$montant;
+        $this->solde-=(float)$montant;
     }
 
     /**
