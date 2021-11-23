@@ -2,12 +2,12 @@
 
 class Compte
 {
-    private $numero;
+    private $id;
     private $solde;
 
-    public function __construct($numero)
+    public function __construct($id)
     {
-        $this->numero=(int)$numero;
+        $this->numero=(int)$id;
         $solde=0;
     }
 
