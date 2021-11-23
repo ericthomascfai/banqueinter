@@ -6,9 +6,9 @@ class AccessBDD
 
     public function __construct()
     {
-        $dsn="mysql:dbname="."banque".";host="."localhost" ;
+        $dsn="mysql:dbname="."banque".";host="."localhost:3306" ;
         try{
-        $this->connexion=new PDO($dsn,"root","");
+        $this->connexion=new PDO($dsn,"root","tignes");
         echo "Connexion OK";
     }
         catch(PDOException $e){
