@@ -31,7 +31,8 @@ class Client
 
     public function afficherSolde()
     {
-        echo "Le solde de tous les comptes du client ".$this->nom." est de ".$this->getSolde()." euros";
+        echo "Le solde de tous les comptes du client ".$this->nom." est de ".$this->getSolde()." euros<br>";
+
     }
 
 

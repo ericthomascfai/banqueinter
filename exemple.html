@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Saisie</title>
+</head>
+<body>
+<form action="saisie.php" method="post">
+  <div>
+    Nom : <input type="text" name="nom" value=""  size="20" maxlength="20" />
+    Mot de passe :  <input type="password" name="mot_de_passe" value="" size="20" maxlength="20" />
+    <!---------------------------- Radio buttons---------------------------------------->
+    Sexe : Feminin <input type="radio" name="sexe" value="F" />
+    Masculin <input type="radio" name="sexe" value="F" />
+    Ne sait pas <input type="radio" name="sexe" value="?" checked="checked" /> <br />
+    <!----------------------------Chexboxs---------------------------------------------->
+    Couleurs préférées :<input type="checkbox" name="couleurs[bleu]" />
+    Bleu <input type="checkbox" name="couleurs[blanc]" />
+    Blanc <input type="checkbox" name="couleurs[rouge]" />
+    Rouge <input type="checkbox" name="couleurs[pas]" checked="checked" />
+    Ne sait pas <br />Langue -
+    <!---------------------------Select option------------------------------------------>
+    <select name="langue"> <option value="E">
+    Espagnol</option> <option value="F" selected="selected" >
+    Francais</option><option value="I">
+    Italien</option>
+    <!----------------------------Select Multiple-------------------------------------->
+    </select>  <br />Fruits préférés :<br />
+    <select name="fruits[]" multiple="multiple" size="8">
+      <option value="A">Abricots</option>
+      <option value="C">Cerises</option>
+      <option value="F">Fraises</option>
+      <option value="P">Pêches</option>
+      <option value="?" selected="selected">  Ne sait pas</option>
+
+    </select>
+    <!---------------------------TextArea----------------------------------------------->
+      <br />Commentaire :<br />
+    <textarea name="commentaire" rows="4" cols="50">
+    </textarea>  <br />
+    <!----------------------------Buttons---------------------------------------------->
+    <input type="submit" name="soumettre" value="OK" />
+    <input type="button" name="action" value="Ne fait rien" />
+  </div>
+</form>
+</body>
+</html>
