@@ -5,10 +5,10 @@ class Compte
     private $id;
     private $solde;
 
-    public function __construct($id)
+    public function __construct($id,$solde)
     {
         $this->id=(int)$id;
-        $solde=0;
+        $this->solde=$solde;
     }
 
     public function depot($montant)

@@ -26,7 +26,7 @@ class AccessBDD
         $stmt=$this->connexion->prepare($sql);
         $stmt->bindParam(':id',$compte->getId());
         $stmt->bindParam(':solde',$compte->getSolde());
-        $stmt->execute();
+        $stmt->execute(); //execute la requete
 
         if(!$stmt)
         {
@@ -41,12 +41,36 @@ class AccessBDD
 
     public function update($compte)
     {
+        $sql="UPDATE compte SET solde=:newsolde where id=:id";
+        $stmt=$this->connexion->prepare($sql);
+        $stmt->bindParam(':id',$compte->getId());
+        $stmt->bindParam(':newsolde',$compte->getSolde());
+        $stmt->execute(); //execute la requete
+        if(!$stmt)
+        {
+            echo "<script>alert('Pb connexion');</script>";
+        }
+        else
+            if($stmt->rowCount()==1)
+            {
+                echo "<script>alert('Le compte a bien été modifié');</script>";
+            }
 
     }
 
-    public function find ($id)
+    public function find($id)
     {
-
+        $sql="SELECT * FROM compte where id=:id";
+        $stmt=$this->connexion->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+        $row=$stmt->fetch();
+        if(empty($row))
+        {
+            echo "<script>alert('pas de résultats');</script>";
+        }
+        else
+        return new Compte($row["id"],$row["solde"]);
     }
 
 
