@@ -7,7 +7,7 @@ class Compte
 
     public function __construct($id)
     {
-        $this->numero=(int)$id;
+        $this->id=(int)$id;
         $solde=0;
     }
 
