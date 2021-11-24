@@ -29,6 +29,14 @@ class Compte
         return $this->solde;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function afficherSolde()
     {
         echo "Le solde du compte n°".$this->numero." est de ".number_format($this->solde,2)." euros<br>";
