@@ -26,6 +26,15 @@ class AccessBDD
         $stmt->bindParam(':id',$compte->getId());
         $stmt->bindParam(':solde',$compte->getSolde());
         $stmt->execute();
+        if(!$stmt)
+        {
+            echo "<script>alert('Pb connexion');</script>";
+        }
+        else
+            if($stmt->rowCount()==1)
+            {
+                echo "<script>alert('Le compte a bien été créé');</script>";
+            }
     }
 
     public function update($compte)
