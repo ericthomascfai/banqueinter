@@ -38,9 +38,7 @@ else
         else
         {
             $compte=$access->find($_POST["id"]);
-            $compte->afficherSolde();
-
-            echo "<script> alert(".$compte->afficherSolde."); document.location='menucompte.html';</script>";
+            echo "<script> alert('".$compte->afficherSolde()."'); document.location='menucompte.html';</script>";
 
         }
 

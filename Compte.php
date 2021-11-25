@@ -39,7 +39,7 @@ class Compte
 
     public function afficherSolde()
     {
-        return "Le solde du compte n°".$this->id." est de ".number_format($this->solde,2)." euros<br>";
+        return "Le solde du compte n°".$this->id." est de ".number_format($this->solde,2)." euros";
     }
 
     public function virer($montant,$destinataire)
