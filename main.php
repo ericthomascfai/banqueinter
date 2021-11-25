@@ -1,24 +1,39 @@
 <?php
 require("Compte.php");
 require("Client.php");
-$compte=new Compte(1);
+require("AccessBDD.php");
+$access=new AccessBDD();
+if(isset($_POST["id"])&&isset($_POST["solde"]))
+{
+    $compte=new Compte($_POST["id"],$_POST["solde"]);
+    $access->insert($compte);
+    echo "<script>document.location='menucompte.html';</script>";
+}
 
 if(isset($_POST["depot"]))
 {
+    $compte=$access->find($_POST["id"]);
     $compte->depot($_POST["depot"]);
-    echo "<script>alert('Dépot effectué'); document.location='menucompte.html';</script>";
+    $access->update($compte);
+    echo "<script> document.location='menucompte.html';</script>";
 }
 else
     if(isset($_POST["retrait"]))
     {
+        $compte=$access->find($_POST["id"]);
         $compte->retrait($_POST["retrait"]);
-        echo "<script>alert('Retrait effectué'); document.location='menucompte.html';</script>";
+        $access->update($compte);
+        echo "<script>document.location='menucompte.html';</script>";
     }
     else
         if(isset($_POST["destinataire"])&&isset($_POST["montantvirement"]))
         {
-            $compte->virer($_POST["montantvirement"],$_POST["destinataire"]);
-            echo "<script>alert('Virement effectué'); document.location='menucompte.html';</script>";
+            $comptesource=$access->find($_POST["id"]);
+            $destinataire=$access->find($_POST["destinataire"]);
+            $comptesource->virer($_POST["montantvirement"],$destinataire);
+            $access->update($comptesource);
+            $access->update($destinataire);
+            echo "<script> document.location='menucompte.html';</script>";
         }
         else
         {
