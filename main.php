@@ -3,13 +3,14 @@ require("./model/Compte.php");
 require("./model/Client.php");
 require("./bda/AccessBDD.php");
 $access=new AccessBDD();
+
 if(isset($_POST["id"])&&isset($_POST["solde"]))
 {
     $compte=new Compte($_POST["id"],$_POST["solde"]);
     $access->insert($compte);
     echo "<script>document.location='menucompte.html';</script>";
 }
-
+else
 if(isset($_POST["depot"]))
 {
     $compte=$access->find($_POST["id"]);
