@@ -35,7 +35,7 @@ class AccessBDD
         else
             if($stmt->rowCount()==1)
             {
-                echo "<script>alert('Le compte a bien été créé');</script>";
+                echo "<script>alert('Le compte n° ".$compte->getId()." a bien été créé');</script>";
             }
     }
 

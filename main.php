@@ -1,7 +1,7 @@
 <?php
-require("Compte.php");
-require("Client.php");
-require("AccessBDD.php");
+require("./model/Compte.php");
+require("./model/Client.php");
+require("./bda/AccessBDD.php");
 $access=new AccessBDD();
 if(isset($_POST["id"])&&isset($_POST["solde"]))
 {
